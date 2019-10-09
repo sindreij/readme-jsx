@@ -66,9 +66,8 @@ const Parser = () => {
     const readme = require(PATH.resolve(path));
     const html = ReactDOMServer.renderToString(readme).replace(
       /<!-- -->/g,
-      "\n",
+      "\n\n",
     );
-    console.log(html);
     parseHTML(html).then(replacers =>
       generateMD(html, replacers).then(md => {
         const finalresult = md[replacers.length - 1];
