@@ -8,7 +8,13 @@ const importJSX = require("import-jsx");
 const { render, Color } = require("ink");
 const { screenshotDOMElement } = require("./helpers");
 const [path = "./README.jsx"] = process.argv.slice(2);
+
 let dotsInterval;
+const ASSETS_DIR = "./readme_assets";
+
+if (!FS.existsSync(ASSETS_DIR)) {
+  FS.mkdirSync(ASSETS_DIR);
+}
 
 const generateMD = (html, replacers) => {
   let md = html;
@@ -39,10 +45,15 @@ const parseHTML = html =>
       element =>
         new Promise(async function(resolve, reject) {
           await page.setContent(element.html, { waitUntil: "load" });
-          await screenshotDOMElement(page, "body > *", element.filename);
+          await screenshotDOMElement(
+            page,
+            "body > *",
+            element.filename,
+            ASSETS_DIR,
+          );
           resolve({
             replace: element.html,
-            with: `<img src="assets/${element.filename}.png" />`,
+            with: `<img src="${ASSETS_DIR}/${element.filename}.png" />`,
           });
         }),
     );

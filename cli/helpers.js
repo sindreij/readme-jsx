@@ -1,5 +1,11 @@
 module.exports = {
-  screenshotDOMElement: async function(page, selector, name, padding = 0) {
+  screenshotDOMElement: async function(
+    page,
+    selector,
+    name,
+    folder,
+    padding = 0,
+  ) {
     const rect = await page.evaluate(selector => {
       const element = document.querySelector(selector);
       const { x, y, width, height } = element.getBoundingClientRect();
@@ -7,7 +13,7 @@ module.exports = {
     }, selector);
 
     return await page.screenshot({
-      path: `assets/${name}.png`,
+      path: `${folder}/${name}.png`,
       omitBackground: true,
       clip: {
         x: rect.left - padding,
