@@ -36,11 +36,14 @@ const parseHTML = html =>
         document.querySelectorAll(
           "*:not(html):not(head):not(body):not(style):not(script):not(img)",
         ),
-      ).map((el, i) => ({
-        html: el.outerHTML,
-        filename: `${el.tagName}_${i}`,
-      }));
+      ).map((el, i) => {
+        return {
+          html: el.outerHTML,
+          filename: `${el.tagName}_${i}`,
+        };
+      });
     });
+    console.log(elements);
     const screenshots = elements.map(
       element =>
         new Promise(async function(resolve, reject) {
@@ -65,12 +68,13 @@ const Parser = () => {
   const [dots, setDots] = React.useState(".");
   React.useEffect(() => {
     const readme = require(PATH.resolve(path));
-    const html = he.decode(
-      ReactDOMServer.renderToString(readme).replace(/<!-- -->/g, "\n\n"),
+    const html = ReactDOMServer.renderToString(readme).replace(
+      /<!-- -->/g,
+      "\n\n",
     );
     parseHTML(html).then(replacers =>
       generateMD(html, replacers).then(md => {
-        const finalresult = md[replacers.length - 1];
+        const finalresult = he.decode(md[replacers.length - 1]);
         FS.writeFile(PATH.resolve("./README.md"), finalresult, err => {
           if (err) throw err;
           setParsed(true);

@@ -20,7 +20,7 @@
 
 > A quote here
 
-<img src="./readme_assets/DETAILS_1.png" />
+<details><summary>Hello</summary>Content here</details>
 
 - [x] Do this
 
@@ -64,4 +64,4 @@
 
 
 
-<img src="./readme_assets/BUTTON_3.png" /><img src="./readme_assets/BUTTON_4.png" /><img src="./readme_assets/BUTTON_5.png" />
+<img src="./readme_assets/BUTTON_0.png" /><img src="./readme_assets/BUTTON_1.png" /><img src="./readme_assets/BUTTON_2.png" />
