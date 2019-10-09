@@ -1,11 +1,12 @@
 "use strict";
 const React = require("react");
 const puppeteer = require("puppeteer");
+const he = require("he");
 const ReactDOMServer = require("react-dom/server");
 const PATH = require("path");
 const FS = require("fs");
 const { render, Color } = require("ink");
-const { screenshotDOMElement } = require("./helpers");
+const { screenshotDOMElement, htmlDecode } = require("./helpers");
 const [path = "./README.jsx"] = process.argv.slice(2);
 
 let dotsInterval;
@@ -64,9 +65,8 @@ const Parser = () => {
   const [dots, setDots] = React.useState(".");
   React.useEffect(() => {
     const readme = require(PATH.resolve(path));
-    const html = ReactDOMServer.renderToString(readme).replace(
-      /<!-- -->/g,
-      "\n\n",
+    const html = he.decode(
+      ReactDOMServer.renderToString(readme).replace(/<!-- -->/g, "\n\n"),
     );
     parseHTML(html).then(replacers =>
       generateMD(html, replacers).then(md => {

@@ -18,6 +18,7 @@
   "dependencies": {
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
+    "he": "^1.2.0",
     "ink": "^2.5.0",
     "puppeteer": "^1.20.0",
     "react": "^16.10.2",

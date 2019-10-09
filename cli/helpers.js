@@ -1,4 +1,8 @@
 module.exports = {
+  htmlDecode: function(html) {
+    var doc = new DOMParser().parseFromString(html, "text/html");
+    return doc.documentElement.textContent;
+  },
   screenshotDOMElement: async function(
     page,
     selector,

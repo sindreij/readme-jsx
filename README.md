@@ -15,12 +15,12 @@
 `Hello world`
 
 ```jsx
-&lt;Button&gt;Coool&lt;/Button&gt;
+<Button>Coool</Button>
 ```
 
-&gt; A quote here
+> A quote here
 
-&lt;details&gt;&lt;summary&gt;Hello&lt;/summary&gt;Content here&lt;/details&gt;
+<img src="./readme_assets/DETAILS_1.png" />
 
 - [x] Do this
 
@@ -64,4 +64,4 @@
 
 
 
-<img src="./readme_assets/BUTTON_0.png" /><img src="./readme_assets/BUTTON_1.png" /><img src="./readme_assets/BUTTON_2.png" />
+<img src="./readme_assets/BUTTON_3.png" /><img src="./readme_assets/BUTTON_4.png" /><img src="./readme_assets/BUTTON_5.png" />
