@@ -1,6 +1,6 @@
 {
   "name": "readme-jsx",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "🌺 Create beautiful readme files with JSX 🌺",
   "main": "./cli/index.js",
   "bin": {
