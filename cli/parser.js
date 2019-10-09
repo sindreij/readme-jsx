@@ -7,7 +7,7 @@ const FS = require("fs");
 const importJSX = require("import-jsx");
 const { render, Color } = require("ink");
 const { screenshotDOMElement } = require("./helpers");
-const [path = PATH.resolve("./README.jsx")] = process.argv.slice(2);
+const [path = "./README.jsx"] = process.argv.slice(2);
 let dotsInterval;
 
 const generateMD = (html, replacers) => {
@@ -53,7 +53,7 @@ const Parser = () => {
   const [parsed, setParsed] = React.useState(false);
   const [dots, setDots] = React.useState(".");
   React.useEffect(() => {
-    const readme = importJSX(path);
+    const readme = importJSX(PATH.resolve(path));
     const html = ReactDOMServer.renderToStaticMarkup(readme);
     parseHTML(html).then(replacers =>
       generateMD(html, replacers).then(md => {
