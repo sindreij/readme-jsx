@@ -12,8 +12,10 @@
    - This is the first item content
    - This is the first item content
    - This is the first item content
+
 * Second item
    - This is the second item content
+
 * Third item
    - This is the third item content
 
@@ -21,9 +23,13 @@
    - This is the first item content
    - This is the first item content
    - This is the first item content
+
 2. Second item
    - This is the second item content
+
 3. Third item
    - This is the third item content
+
+
 
 <img src="./readme_assets/BUTTON_0.png" /><img src="./readme_assets/BUTTON_1.png" /><img src="./readme_assets/BUTTON_2.png" />
