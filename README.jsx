@@ -12,6 +12,7 @@ const {
   OL,
   SCRATCH,
   BR,
+  HR,
   A,
   CODE,
   QUOTE,
@@ -40,6 +41,8 @@ module.exports = (
     </CODE>
 
 
+    <HR />
+
     <TABLE 
     columns={["First Header", "Second Header"]} 
     rows={[
@@ -47,6 +50,9 @@ module.exports = (
       ["Content Cell","Content Cell"],
     ]}
     />
+
+
+<HR />
 
     <QUOTE>
       A quote here
