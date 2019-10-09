@@ -1,2 +1,5 @@
 "use strict";
-require("import-jsx")("./parser");
+require("babel-register")({
+  presets: ["react"],
+});
+require("./parser");

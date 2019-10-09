@@ -4,7 +4,6 @@ const puppeteer = require("puppeteer");
 const ReactDOMServer = require("react-dom/server");
 const PATH = require("path");
 const FS = require("fs");
-const importJSX = require("import-jsx");
 const { render, Color } = require("ink");
 const { screenshotDOMElement } = require("./helpers");
 const [path = "./README.jsx"] = process.argv.slice(2);
@@ -64,7 +63,7 @@ const Parser = () => {
   const [parsed, setParsed] = React.useState(false);
   const [dots, setDots] = React.useState(".");
   React.useEffect(() => {
-    const readme = importJSX(PATH.resolve(path));
+    const readme = require(PATH.resolve(path));
     const html = ReactDOMServer.renderToStaticMarkup(readme);
     parseHTML(html).then(replacers =>
       generateMD(html, replacers).then(md => {
