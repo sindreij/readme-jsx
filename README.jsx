@@ -16,7 +16,8 @@ const {
   CODE,
   QUOTE,
   COLLAPSIBLE,
-  TASKS
+  TASKS,
+  TABLE
 } = require("./lib");
 const Button = require("./components/button.jsx");
 
@@ -37,6 +38,15 @@ module.exports = (
     <CODE inline={false} lang="jsx">
       {`<Button>Coool</Button>`}
     </CODE>
+
+
+    <TABLE 
+    columns={["First Header", "Second Header"]} 
+    rows={[
+      ["Content Cell","Content Cell"],
+      ["Content Cell","Content Cell"],
+    ]}
+    />
 
     <QUOTE>
       A quote here

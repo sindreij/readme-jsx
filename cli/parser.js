@@ -43,7 +43,6 @@ const parseHTML = html =>
         };
       });
     });
-    console.log(elements);
     const screenshots = elements.map(
       element =>
         new Promise(async function(resolve, reject) {
