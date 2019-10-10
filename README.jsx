@@ -67,8 +67,10 @@ module.exports = (
         // text-shadow: 0 0.1em 20px black, 0.05em -0.03em 0 black, 0.05em 0.005em 0 black, 0em 0.08em 0 black, 0.05em 0.08em 0 black, 0px -0.03em 0 black, -0.03em -0.03em 0 black, -0.03em 0.08em 0 black, -0.03em 0 0 black;
       }
       #description{
+        padding: 0px;
+        margin: 0px;
         display: flex;
-        font-weight:100;
+        font-weight:800;
         justify-content: center;
         align-items: center;
         color: #e91e63;
@@ -99,11 +101,43 @@ module.exports = (
   <Description /><BR />
 
 
-  <BADGE label="LICENSE" message="MIT" style="for-the-badge" color="e91e63" /><BADGE label="VERSION" message={metadata.version} style="for-the-badge" color="e91e63" />
+  <BADGE label="LICENSE" message={metadata.license} style="for-the-badge" color="e91e63" /><BADGE label="VERSION" message={metadata.version} style="for-the-badge" color="e91e63" />
 
   <BR /><BR/>
-  <Header>About</Header>
+  <Header>About</Header><BR/>
+  <QUOTE>README-JSX is a package that lets you write your README documentations in jsx, opening a multitude of new possibilities and oppurtinities to get creative.
+   Not only that, but it also provides you with all the necessary components for writing traditional markdown without having to struggle with spacing and formatting... </QUOTE>
+   <QUOTE>NOTICE: This file was generated with this library, you can checkout the sourecode by viewing the README.jsx file</QUOTE><BR/>
+   <Header>Usage</Header><BR/>
+   <CODE lang="shell">{`npm i --save readme-jsx`}</CODE><BR/>
+   <CODE inline={false} lang="jsx">{`// ./README.jsx
+const React = require("react");
+const { BADGE, metadata} = require("readme-jsx");
 
+module.exports = (
+  <React.Fragment>
+    <BADGE 
+    label="LICENSE" 
+    message={metadata.license} 
+    style="for-the-badge" 
+    color="blue" />
+  </React.Fragment>
+)`}</CODE><BR/>
+   <CODE inline={false} lang="jsx">{`// ./scripts/readme-gen.js
+const { generateMD } = require("readme-jsx");
+generateMD("./README.jsx").then(() => {
+  console.log("README.md generated !");
+  process.exit();
+});
+)`}</CODE><BR/>
+   <CODE  lang="shell">{`node ./scripts/readme-gen.js`}</CODE><BR/>
+Result: <BR />
+<BADGE 
+    label="LICENSE" 
+    message={metadata.license} 
+    style="for-the-badge" 
+    color="blue" /><BR/>
+       <Header>API</Header><BR/>
 {/* 
     <H1>{metadata.name}</H1>
     <H1>{metadata.description}</H1>
