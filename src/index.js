@@ -1,20 +1,22 @@
 const importJSX = require("import-jsx");
+const ReactDOMServer = require("react-dom/server");
+const he = require("he");
 const generateMD = require("./api");
 
 module.exports = {
   generateMD,
   importJSX,
- metadata: {
-  name: "{{{name}}}",
-  description: "{{{description}}}",
-  version: "{{{version}}}",
-  keywords: "{{{keywords}}}",
-  author: "{{{author}}}",
-  license: "{{{license}}}",
-  dependencies: "{{{dependencies}}}",
-  homepage: "{{{homepage}}}",
-  scripts: "{{{scripts}}}",
- },
+  metadata: {
+    name: "{{{name}}}",
+    description: "{{{description}}}",
+    version: "{{{version}}}",
+    keywords: "{{{keywords}}}",
+    author: "{{{author}}}",
+    license: "{{{license}}}",
+    dependencies: "{{{dependencies}}}",
+    homepage: "{{{homepage}}}",
+    scripts: "{{{scripts}}}"
+  },
   H1: function({ children }) {
     return `# ${children}`;
   },
@@ -45,42 +47,72 @@ module.exports = {
   OL: function({ list }) {
     return list.map(
       (item, i) =>
-        `\n${i + 1}. ${item.title}${item.content && item.content.length ? item.content.map(c => `\n   - ${c}`).join("") : ""}`,
+        `\n${i + 1}. ${item.title}${
+          item.content && item.content.length
+            ? item.content.map(c => `\n   - ${c}`).join("")
+            : ""
+        }`
     );
   },
   UL: function({ list }) {
     return list.map(
-      item => `\n* ${item.title}${item.content && item.content.length ? item.content.map(c => `\n   - ${c}`).join("") : ""}`,
+      item =>
+        cell`\n* ${item.title}${
+          item.content && item.content.length
+            ? item.content.map(c => `\n   - ${c}`).join("")
+            : ""
+        }`
     );
   },
-  BR: function( ) {
-    return "\n"
+  BR: function() {
+    return "\n";
   },
-  HR: function( ) {
-    return "---"
+  HR: function() {
+    return "---";
   },
-  QUOTE: function( {children}) {
-    return `> ${children}`
+  QUOTE: function({ children }) {
+    return `> ${children}`;
   },
-  CODE: function( {children, inline = true, lang = "jsx"}) {
-    return inline ? `\`${children}\`` : `\`\`\`${lang}\n${children}\n\`\`\``
+  CODE: function({ children, inline = true, lang = "jsx" }) {
+    return inline ? `\`${children}\`` : `\`\`\`${lang}\n${children}\n\`\`\``;
   },
-  A: function( {children, href = ""}) {
-    return `[${children}](${href})`
+  A: function({ children, href = "" }) {
+    return `[${children}](${href})`;
   },
-  TASKS: function( {list}) {
-    return list.map(item => `- [${item.done ? "x" : " "}] ${item.title}`)
+  TASKS: function({ list }) {
+    return list.map(item => `- [${item.done ? "x" : " "}] ${item.title}`);
   },
-  COLLAPSIBLE: function( {title, children}) {
-    return `<details><summary>${title}</summary>${children}</details>`
+  COLLAPSIBLE: function({ title, children }) {
+    return `<details><summary>${title}</summary>${children}</details>`;
   },
-  TABLE: function( {columns, rows}) {
-    return `| ${columns.map(column => `${column}`).join(" | ")} |\n| ${columns.map(column => `-------------`).join(" | ")} |\n${rows.map(row => "| " + row.map(cell => `${cell}` ).join(" | ")).join(" | \n")} |\n`
+  TABLE: function({ columns, rows }) {
+    return `| ${columns
+      .map(column => `${column}`)
+      .join(" | ")} |\n| ${columns
+      .map(column => `-------------`)
+      .join(" | ")} |\n${rows
+      .map(
+        row =>
+          "| " +
+          row
+            .map(cell => he.decode(ReactDOMServer.renderToString(cell)))
+            .join(" | ")
+      )
+      .join(" | \n")} |\n`;
   },
-  IMG: function( {src, href = "", alt = ""}) {
-    return `[![${alt}](${src})](${href}/)`
+  IMG: function({ src, href = "", alt = "" }) {
+    return `[![${alt}](${src})](${href}/)`;
   },
-  BADGE: function( {label="",message="", link = "",color="green", style = "plastic", logo = "", logoColor = "violet", labelColor="black"}) {
-    return `![${label}](https://img.shields.io/static/v1?label=${label}&message=${message}&color=${color}&style=${style}&logo=${logo}&logoColor=${logoColor}&link=${link}&labelColor=${labelColor})`
-  },
+  BADGE: function({
+    label = "",
+    message = "",
+    link = "",
+    color = "green",
+    style = "plastic",
+    logo = "",
+    logoColor = "violet",
+    labelColor = "black"
+  }) {
+    return `![${label}](https://img.shields.io/static/v1?label=${label}&message=${message}&color=${color}&style=${style}&logo=${logo}&logoColor=${logoColor}&link=${link}&labelColor=${labelColor})`;
+  }
 };

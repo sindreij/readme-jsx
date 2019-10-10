@@ -33,6 +33,10 @@ const Header = ({ children }) => (
   <h1 className="header">{children}</h1>
 );
 
+const Subheader = ({ children }) => (
+  <h2 className="subheader">{children}</h2>
+);
+
 const Logo = ({  }) => (
   <h1 id="logo">
     <span>README</span>{"  -  "}<span>JSX</span>
@@ -90,7 +94,20 @@ module.exports = (
         color: white;
         background: black;
         text-transform: uppercase;
-        text-shadow: 0 0.1em 20px black, 0.05em -0.03em 0 black, 0.05em 0.005em 0 black, 0em 0.08em 0 black, 0.05em 0.08em 0 black, 0px -0.03em 0 black, -0.03em -0.03em 0 black, -0.03em 0.08em 0 black, -0.03em 0 0 black;
+      }
+      .subheader {
+        text-align:left;
+        height: 40px;
+        margin: 0px;
+        font-size: 1.5em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        color: white;
+        background: #e91e63;
+        text-transform: uppercase;
+        border-top: 3px solid black;
       }
       
 
@@ -139,6 +156,23 @@ generateMD("./README.jsx").then(() => {
     style="for-the-badge" 
     color="blue" /><BR/>
        <Header>API</Header><BR/>
+       <Subheader>Components</Subheader><BR/>
+       <TABLE columns={["Component", "Props", "Description", "Example", "Preview"]} rows={[
+         ["H1", "", "A basic markdown header", <CODE lang="jsx">{`<H1>A header</H1>`}</CODE>, <H1>A header</H1>],
+         ["H2", "", "A basic markdown header", <CODE lang="jsx">{`<H2>A header</H2>`}</CODE>, <H2>A header</H2>],
+         ["H3", "", "A basic markdown header", <CODE lang="jsx">{`<H3>A header</H3>`}</CODE>, <H3>A header</H3>],
+         ["H4", "", "A basic markdown header", <CODE lang="jsx">{`<H4>A header</H4>`}</CODE>, <H4>A header</H4>],
+         ["H5", "", "A basic markdown header", <CODE lang="jsx">{`<H5>A header</H5>`}</CODE>, <H5>A header</H5>],
+         ["H6", "", "A basic markdown header", <CODE lang="jsx">{`<H6>A header</H6>`}</CODE>, <H6>A header</H6>],
+         ["ITALIC", "", "Turns text italic", <CODE lang="jsx">{`<H6>A header</H6>`}</CODE>, <H6>A header</H6>],
+         ["BOLD", "", "Turns text bold", <CODE lang="jsx">{`<H6>A header</H6>`}</CODE>, <H6>A header</H6>],
+         ["SCRATCH", "", "Scratches the text", <CODE lang="jsx">{`<H6>A header</H6>`}</CODE>, <H6>A header</H6>],
+       ]} /><BR/>
+       <Subheader>Functions</Subheader><BR/>
+       <TABLE columns={["Function", "Arguments", "Description", "Example"]} rows={[[]]} /><BR/>
+       <Subheader>Properties</Subheader><BR/>
+       <TABLE columns={["Property", "Description", "Example"]} rows={[[]]} /><BR/>
+    
 {/* 
     <H1>{metadata.name}</H1>
     <H1>{metadata.description}</H1>

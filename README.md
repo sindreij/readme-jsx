@@ -67,3 +67,38 @@ generateMD("./README.jsx").then(() => {
 
 
 <img src="./readme_assets/H1_4.png" />
+<img src="./readme_assets/H2_5.png" />
+
+
+| Component | Props | Description | Example | Preview |
+| ------------- | ------------- | ------------- | ------------- | ------------- |
+| H1 |  | A basic markdown header | `<H1>A header</H1>` | # A header | 
+| H2 |  | A basic markdown header | `<H2>A header</H2>` | ## A header | 
+| H3 |  | A basic markdown header | `<H3>A header</H3>` | ### A header | 
+| H4 |  | A basic markdown header | `<H4>A header</H4>` | #### A header | 
+| H5 |  | A basic markdown header | `<H5>A header</H5>` | ##### A header | 
+| H6 |  | A basic markdown header | `<H6>A header</H6>` | ##### A header | 
+| ITALIC |  | Turns text italic | `<H6>A header</H6>` | ##### A header | 
+| BOLD |  | Turns text bold | `<H6>A header</H6>` | ##### A header | 
+| SCRATCH |  | Scratches the text | `<H6>A header</H6>` | ##### A header |
+
+
+
+<img src="./readme_assets/H2_6.png" />
+
+
+| Function | Arguments | Description | Example |
+| ------------- | ------------- | ------------- | ------------- |
+|  |
+
+
+
+<img src="./readme_assets/H2_7.png" />
+
+
+| Property | Description | Example |
+| ------------- | ------------- | ------------- |
+|  |
+
+
+
