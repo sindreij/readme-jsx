@@ -18,12 +18,20 @@ const {
   QUOTE,
   COLLAPSIBLE,
   TASKS,
+  BADGE,
   TABLE
 } = require("./lib");
 const Button = require("./components/button.jsx");
 
 module.exports = (
   <React.Fragment>
+
+  <BADGE label="LICENSE" message="MIT" style="for-the-badge" color="green" />
+  <BADGE label="LICENSE" message="MIT" style="flat" color="green" />
+  <BADGE label="LICENSE" message="MIT" style="flat-square" color="green" />
+  <BADGE label="LICENSE" message="MIT" style="social" color="green" />
+
+
     <H1>JSX to MD</H1>
     <H2>JSX to markdown, just like that... </H2>
     <H3>1.0.0 </H3>

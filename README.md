@@ -1,3 +1,11 @@
+![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=green&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
+
+![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=green&style=flat&logo=&logoColor=violet&link=&labelColor=black)
+
+![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=green&style=flat-square&logo=&logoColor=violet&link=&labelColor=black)
+
+![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=green&style=social&logo=&logoColor=violet&link=&labelColor=black)
+
 # JSX to MD
 
 ## JSX to markdown, just like that... 
@@ -36,11 +44,11 @@
 
 - [ ] Do that
 
-**1.0.0**
+**1.0.0 **
 
-*1.0.0*
+*1.0.0 *
 
-~~1.0.0~~
+~~1.0.0 ~~
 
 
 * First item
