@@ -29,32 +29,66 @@ const Button = ({ children }) => (
   <button>{children}</button>
 );
 
+const Header = ({ children }) => (
+  <h1 className="header">{children}</h1>
+);
+
 const Logo = ({  }) => (
-  <div>
-    <h1 data-heading="Slide">README-JSX</h1>
-  </div>
+  <h1 id="logo"><span>README</span>{"  -  "}<span>JSX</span></h1>
 );
 
 module.exports = (
   <React.Fragment>
     <style>
       {`
+      @import url('https://fonts.googleapis.com/css?family=Raleway:100&display=swap');
+      *{
+        font-family: "Raleway";
+      }
+      #logo {
+        width: 880px;
+        height: 180px;
+        margin: 0px;
+        font-size: 8em;
+        display: flex;
+        font-weight:100;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        color: black;
+        // text-shadow: 0 0.1em 20px black, 0.05em -0.03em 0 black, 0.05em 0.005em 0 black, 0em 0.08em 0 black, 0.05em 0.08em 0 black, 0px -0.03em 0 black, -0.03em -0.03em 0 black, -0.03em 0.08em 0 black, -0.03em 0 0 black;
+      }
+      .header {
+        width: 880px;
+        height: 50px;
+        margin: 0px;
+        font-size: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        color: white;
+        background: black;
+        text-transform: uppercase;
+        text-shadow: 0 0.1em 20px black, 0.05em -0.03em 0 black, 0.05em 0.005em 0 black, 0em 0.08em 0 black, 0.05em 0.08em 0 black, 0px -0.03em 0 black, -0.03em -0.03em 0 black, -0.03em 0.08em 0 black, -0.03em 0 0 black;
+      }
+      
+
       button{
         background: yellow;
       }
       `}
     </style>
+    <Logo /><BR /><BR/>
 
+    <QUOTE>{metadata.description}</QUOTE>
 
-    <Logo />
+  <BADGE label="LICENSE" message="MIT" style="for-the-badge" color="e91e63" /><BADGE label="VERSION" message={metadata.version} style="for-the-badge" color="e91e63" />
 
-    
-  <BADGE label="LICENSE" message="MIT" style="for-the-badge" color="green" />
-  <BADGE label="LICENSE" message="MIT" style="flat" color="green" />
-  <BADGE label="LICENSE" message="MIT" style="flat-square" color="green" />
-  <BADGE label="LICENSE" message="MIT" style="social" color="green" />
+  <BR /><BR/>
+  <Header>About</Header>
 
-
+{/* 
     <H1>{metadata.name}</H1>
     <H1>{metadata.description}</H1>
     <H1>{metadata.author}</H1>
@@ -141,7 +175,7 @@ module.exports = (
       <BR/>
     <Button>Hello world</Button>
     <Button>Hello world 2</Button>
-    <Button>Hello world 3</Button>
+    <Button>Hello world 3</Button> */}
 
 
   </React.Fragment>

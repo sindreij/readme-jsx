@@ -96,16 +96,18 @@ const takeSnapshots = (browser, snapshots, dir) =>
     resolve(Promise.all(replacers));
   });
 const parseMetadata = (packagejson, markdown) => {
-  const results = markdown.match(/{{{(.*?)}}}/g).reduce((md, data) => {
-    const property = data.replace("{{{", "").replace("}}}", "");
-    return (md = md.replace(
-      new RegExp(data, "g"),
-      typeof packagejson[property] === "string"
-        ? packagejson[property]
-        : JSON.stringify(packagejson[property])
-    ));
-  }, markdown);
-  return Promise.resolve(results);
+  const result = markdown.match(/{{{(.*?)}}}/g)
+    ? markdown.match(/{{{(.*?)}}}/g).reduce((md, data) => {
+        const property = data.replace("{{{", "").replace("}}}", "");
+        return (md = md.replace(
+          new RegExp(data, "g"),
+          typeof packagejson[property] === "string"
+            ? packagejson[property]
+            : JSON.stringify(packagejson[property])
+        ));
+      }, markdown)
+    : markdown;
+  return Promise.resolve(result);
 };
 
 const stripStyles = markdown =>

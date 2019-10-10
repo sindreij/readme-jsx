@@ -9,7 +9,7 @@ declare module "readme-jsx" {
       packagejson: string;
     }
   ) => Promise<void>;
-  export const importJSX;
+  export const importJSX: (path: string) => React.FunctionComponent;
   export const metadata: {
     name: "{{{name}}}";
     description: "{{{description}}}";
