@@ -6,15 +6,15 @@
 
 ![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=green&style=social&logo=&logoColor=violet&link=&labelColor=black)
 
-# "readme-jsx"
+# readme-jsx
 
-# "🌺 Create beautiful readme files with JSX 🌺"
+# 🌺 Create beautiful readme files with JSX 🌺
 
-# "solidsnail"
+# solidsnail
 
 # ["jsx","readme","md","beautiful","markdown"]
 
-# "MIT"
+# MIT
 
 ## JSX to markdown, just like that... 
 

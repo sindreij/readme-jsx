@@ -77,7 +77,9 @@ const Parser = () => {
       return Promise.resolve(
         (html = html.replace(
           new RegExp(data, "g"),
-          JSON.stringify(packagejson[property])
+          typeof packagejson[property] === "string"
+            ? packagejson[property]
+            : JSON.stringify(packagejson[property])
         ))
       );
     });
