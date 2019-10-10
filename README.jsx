@@ -34,7 +34,15 @@ const Header = ({ children }) => (
 );
 
 const Logo = ({  }) => (
-  <h1 id="logo"><span>README</span>{"  -  "}<span>JSX</span></h1>
+  <h1 id="logo">
+    <span>README</span>{"  -  "}<span>JSX</span>
+    </h1>
+);
+
+const Description = ({  }) => (
+  <h1 id="description">
+    <span>{metadata.description}</span>
+    </h1>
 );
 
 module.exports = (
@@ -58,6 +66,14 @@ module.exports = (
         color: black;
         // text-shadow: 0 0.1em 20px black, 0.05em -0.03em 0 black, 0.05em 0.005em 0 black, 0em 0.08em 0 black, 0.05em 0.08em 0 black, 0px -0.03em 0 black, -0.03em -0.03em 0 black, -0.03em 0.08em 0 black, -0.03em 0 0 black;
       }
+      #description{
+        display: flex;
+        font-weight:100;
+        justify-content: center;
+        align-items: center;
+        color: #e91e63;
+        font-size: 1.6em;
+      }
       .header {
         width: 880px;
         height: 50px;
@@ -79,9 +95,9 @@ module.exports = (
       }
       `}
     </style>
-    <Logo /><BR /><BR/>
+    <Logo /><BR />
+  <Description /><BR />
 
-    <QUOTE>{metadata.description}</QUOTE>
 
   <BADGE label="LICENSE" message="MIT" style="for-the-badge" color="e91e63" /><BADGE label="VERSION" message={metadata.version} style="for-the-badge" color="e91e63" />
 
