@@ -43,11 +43,13 @@ const parseHTML = html =>
         };
       });
     });
-    const screenshots = elements.map(
+    const replacers = elements.map(
       element =>
         new Promise(async function(resolve, reject) {
           const page = await browser.newPage();
-          await page.setContent(element.html, { waitUntil: "load" });
+          await page.setContent(element.html, {
+            waitUntil: "networkidle0"
+          });
           await screenshotDOMElement(
             page,
             "body > *",
@@ -60,7 +62,7 @@ const parseHTML = html =>
           });
         })
     );
-    const results = await Promise.all(screenshots);
+    const results = await Promise.all(replacers);
     resolve(results);
   });
 const Parser = () => {

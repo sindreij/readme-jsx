@@ -25,7 +25,17 @@ const {
 
 
 const Button = ({ children }) => (
-  <button style={{ color: "red" }}>{children}</button>
+  <button>
+    <style>{`
+    button{
+      padding: 15;
+      color: white;
+      font-weight: bold;
+      border: none;
+      background: coral;
+    }
+  `}</style>
+  {children}</button>
 );
 
 module.exports = (
