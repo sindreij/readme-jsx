@@ -11,7 +11,6 @@ module.exports = {
       const { x, y, width, height } = element.getBoundingClientRect();
       return { left: x, top: y, width, height, id: element.id };
     }, selector);
-
     return await page.screenshot({
       path: `${folder}/${name}.png`,
       omitBackground: true,

@@ -46,6 +46,7 @@ const parseHTML = html =>
     const screenshots = elements.map(
       element =>
         new Promise(async function(resolve, reject) {
+          const page = await browser.newPage();
           await page.setContent(element.html, { waitUntil: "load" });
           await screenshotDOMElement(
             page,

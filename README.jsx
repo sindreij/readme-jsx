@@ -22,7 +22,11 @@ const {
   BADGE,
   TABLE
 } = require("./lib");
-const Button = require("./components/button.jsx");
+
+
+const Button = ({ children }) => (
+  <button style={{ color: "red" }}>{children}</button>
+);
 
 module.exports = (
   <React.Fragment>
