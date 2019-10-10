@@ -1,6 +1,6 @@
 {
   "name": "readme-jsx",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "🌺 Create beautiful readme files with JSX 🌺",
   "main": "./lib/index.js",
   "homepage": "https://github.com/solidsnail/readme-jsx#readme",
