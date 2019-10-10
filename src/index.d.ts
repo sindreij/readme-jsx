@@ -1,6 +1,15 @@
 import React from "react";
 
 declare module "readme-jsx" {
+  export const generateMD: (
+    path: string,
+    options: {
+      linebreak: number;
+      assetsDir: string;
+      packagejson: string;
+    }
+  ) => Promise<void>;
+  export const importJSX;
   export const metadata: {
     name: "{{{name}}}";
     description: "{{{description}}}";

@@ -1,15 +1,11 @@
 {
   "name": "readme-jsx",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "🌺 Create beautiful readme files with JSX 🌺",
-  "main": "./lib/index.js",
+  "main": "./src/index.js",
   "homepage": "https://github.com/solidsnail/readme-jsx#readme",
-  "bin": {
-    "readme-jsx-cli": "./cli/index.js"
-  },
   "files": [
-    "cli",
-    "lib"
+    "src"
   ],
   "keywords": [
     "jsx",
@@ -21,10 +17,8 @@
   "author": "solidsnail",
   "license": "MIT",
   "dependencies": {
-    "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.26.0",
     "he": "^1.2.0",
-    "ink": "^2.5.0",
+    "import-jsx": "^3.0.0",
     "puppeteer": "^1.20.0",
     "react": "^16.10.2",
     "react-dom": "^16.10.2"

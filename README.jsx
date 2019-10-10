@@ -20,67 +20,32 @@ const {
   COLLAPSIBLE,
   TASKS,
   BADGE,
-  TABLE
-} = require("./lib");
+  TABLE,
+  importJSX
+} = require("./src");
 
 
 const Button = ({ children }) => (
-  <button>
-    <style>{`
-    button{
-      padding: 15;
-      color: white;
-      font-weight: bold;
-      border: none;
-      background: coral;
-    }
-  `}</style>
-  {children}</button>
+  <button>{children}</button>
 );
 
 const Logo = ({  }) => (
   <div>
-    <style>{`
-  h1 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    text-align: center;
-    font-weight: 900;
-    font-family: monospace;
-    width: 100%;
-    text-align: center;
-    font-size: 16vw;
-    background: linear-gradient(-45deg, #4bc0c8 25%, #feac5e 25%, #feac5e 50%, #4bc0c8 50%, #4bc0c8 75%, #feac5e 75%, #feac5e);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 20px 20px;
-    background-position: 0 0;
-    -webkit-animation: stripes 1s linear infinite;
-            animation: stripes 1s linear infinite;
-  }
-  
-  @-webkit-keyframes stripes {
-    100% {
-      background-position: 20px 0, 20px 0, 20px 0;
-    }
-  }
-  
-  @keyframes stripes {
-    100% {
-      background-position: 20px 0, 20px 0, 20px 0;
-    }
-  }
-  
-  `}</style>
     <h1 data-heading="Slide">README-JSX</h1>
   </div>
 );
 
 module.exports = (
   <React.Fragment>
-    
+    <style>
+      {`
+      button{
+        background: yellow;
+      }
+      `}
+    </style>
+
+
     <Logo />
 
     

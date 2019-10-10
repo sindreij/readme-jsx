@@ -1,5 +1,9 @@
+const importJSX = require("import-jsx");
+const generateMD = require("./api");
 
 module.exports = {
+  generateMD,
+  importJSX,
  metadata: {
   name: "{{{name}}}",
   description: "{{{description}}}",
