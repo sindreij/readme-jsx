@@ -6,7 +6,7 @@ const ReactDOMServer = require("react-dom/server");
 const PATH = require("path");
 const FS = require("fs");
 const { render, Color } = require("ink");
-const { screenshotDOMElement, htmlDecode } = require("./helpers");
+const { screenshotDOMElement } = require("./helpers");
 const [path = "./README.jsx"] = process.argv.slice(2);
 
 let dotsInterval;
@@ -22,7 +22,7 @@ const generateMD = (html, replacers) => {
     replacers.map(replacer => {
       md = md.replace(replacer.replace, replacer.with);
       return Promise.resolve(md);
-    }),
+    })
   );
 };
 
@@ -34,12 +34,12 @@ const parseHTML = html =>
     const elements = await page.evaluate(() => {
       return Array.from(
         document.querySelectorAll(
-          "*:not(html):not(head):not(body):not(style):not(script):not(img)",
-        ),
+          "*:not(html):not(head):not(body):not(style):not(script):not(img)"
+        )
       ).map((el, i) => {
         return {
           html: el.outerHTML,
-          filename: `${el.tagName}_${i}`,
+          filename: `${el.tagName}_${i}`
         };
       });
     });
@@ -51,13 +51,13 @@ const parseHTML = html =>
             page,
             "body > *",
             element.filename,
-            ASSETS_DIR,
+            ASSETS_DIR
           );
           resolve({
             replace: element.html,
-            with: `<img src="${ASSETS_DIR}/${element.filename}.png" />`,
+            with: `<img src="${ASSETS_DIR}/${element.filename}.png" />`
           });
-        }),
+        })
     );
     const results = await Promise.all(screenshots);
     resolve(results);
@@ -67,21 +67,35 @@ const Parser = () => {
   const [dots, setDots] = React.useState(".");
   React.useEffect(() => {
     const readme = require(PATH.resolve(path));
-    const html = ReactDOMServer.renderToString(readme).replace(
+    const packagejson = require(PATH.resolve("./package.json"));
+    let html = ReactDOMServer.renderToString(readme).replace(
       /<!-- -->/g,
-      "\n\n",
+      "\n\n"
     );
-    parseHTML(html).then(replacers =>
-      generateMD(html, replacers).then(md => {
-        const finalresult = he.decode(md[replacers.length - 1]);
-        FS.writeFile(PATH.resolve("./README.md"), finalresult, err => {
-          if (err) throw err;
-          setParsed(true);
-          clearInterval(dotsInterval);
-          process.exit();
-        });
-      }),
-    );
+    const parsepackage = html.match(/{{{(.*?)}}}/g).map(data => {
+      const property = data.replace("{{{", "").replace("}}}", "");
+      return Promise.resolve(
+        (html = html.replace(
+          new RegExp(data, "g"),
+          JSON.stringify(packagejson[property])
+        ))
+      );
+    });
+    Promise.all(parsepackage)
+      .then(res => res[parsepackage.length - 1])
+      .then(() => {
+        parseHTML(html).then(replacers =>
+          generateMD(html, replacers).then(md => {
+            const finalresult = he.decode(md[replacers.length - 1]);
+            FS.writeFile(PATH.resolve("./README.md"), finalresult, err => {
+              if (err) throw err;
+              setParsed(true);
+              clearInterval(dotsInterval);
+              process.exit();
+            });
+          })
+        );
+      });
   }, []);
   React.useEffect(() => {
     dotsInterval = setInterval(() => {

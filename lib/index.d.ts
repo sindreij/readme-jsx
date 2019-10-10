@@ -1,6 +1,15 @@
 import React from "react";
 
 // declare module "readme-jsx" {
+export const metadata: {
+  name: "{{{name}}}";
+  description: "{{{description}}}";
+  version: "{{{version}}}";
+  keywords: "{{{keywords}}}";
+  author: "{{{author}}}";
+  license: "{{{license}}}";
+  dependencies: "{{{dependencies}}}";
+};
 export const H1: React.FunctionComponent<{
   children: string;
 }>;

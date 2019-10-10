@@ -1,5 +1,6 @@
 const React = require("react");
 const {
+  metadata,
   H1,
   H2,
   H3,
@@ -32,7 +33,11 @@ module.exports = (
   <BADGE label="LICENSE" message="MIT" style="social" color="green" />
 
 
-    <H1>JSX to MD</H1>
+    <H1>{metadata.name}</H1>
+    <H1>{metadata.description}</H1>
+    <H1>{metadata.author}</H1>
+    <H1>{metadata.keywords}</H1>
+    <H1>{metadata.license}</H1>
     <H2>JSX to markdown, just like that... </H2>
     <H3>1.0.0 </H3>
     <H4>1.0.0 </H4>

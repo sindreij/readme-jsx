@@ -1,14 +1,10 @@
 module.exports = {
-  htmlDecode: function(html) {
-    var doc = new DOMParser().parseFromString(html, "text/html");
-    return doc.documentElement.textContent;
-  },
   screenshotDOMElement: async function(
     page,
     selector,
     name,
     folder,
-    padding = 0,
+    padding = 0
   ) {
     const rect = await page.evaluate(selector => {
       const element = document.querySelector(selector);
@@ -23,8 +19,8 @@ module.exports = {
         x: rect.left - padding,
         y: rect.top - padding,
         width: rect.width + padding * 2,
-        height: rect.height + padding * 2,
-      },
+        height: rect.height + padding * 2
+      }
     });
-  },
+  }
 };
