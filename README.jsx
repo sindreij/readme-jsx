@@ -82,6 +82,8 @@ module.exports = (
   <React.Fragment>
     
     <Logo />
+
+    
   <BADGE label="LICENSE" message="MIT" style="for-the-badge" color="green" />
   <BADGE label="LICENSE" message="MIT" style="flat" color="green" />
   <BADGE label="LICENSE" message="MIT" style="flat-square" color="green" />
