@@ -3,6 +3,7 @@
 
 
 ![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=e91e63&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
+
 ![VERSION](https://img.shields.io/static/v1?label=VERSION&message=0.3.0&color=e91e63&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
 
 
@@ -57,7 +58,7 @@ generateMD("./README.jsx").then(() => {
 
 
 
-Result: 
+`node ./scripts/readme-gen.js`
 
 
 

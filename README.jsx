@@ -67,7 +67,9 @@ module.exports = (
         // text-shadow: 0 0.1em 20px black, 0.05em -0.03em 0 black, 0.05em 0.005em 0 black, 0em 0.08em 0 black, 0.05em 0.08em 0 black, 0px -0.03em 0 black, -0.03em -0.03em 0 black, -0.03em 0.08em 0 black, -0.03em 0 0 black;
       }
       #description{
-        padding: 0px;
+        padding: 0px 0px 40px 0px;
+        width: 880px;
+        height: 70px;
         margin: 0px;
         display: flex;
         font-weight:800;
@@ -131,7 +133,6 @@ generateMD("./README.jsx").then(() => {
 });
 )`}</CODE><BR/>
    <CODE  lang="shell">{`node ./scripts/readme-gen.js`}</CODE><BR/>
-Result: <BR />
 <BADGE 
     label="LICENSE" 
     message={metadata.license} 
