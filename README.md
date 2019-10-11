@@ -3,6 +3,7 @@
 
 
 ![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=e91e63&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
+
 ![VERSION](https://img.shields.io/static/v1?label=VERSION&message=0.3.0&color=e91e63&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
 
 
@@ -18,13 +19,36 @@
 
 
 <img src="./readme_assets/H1_3.png" />
+<img src="./readme_assets/H1_4.png" />
+
+
+- [x] Complain to self  about how tedious it is to write docs in markdown
+
+- [x] Brainstorming
+
+- [x] Come up with a solution
+
+- [x] Initiate project
+
+- [x] Code solution
+
+- [x] Test solution manually because I'm not crazy enough to write a unit test for each case
+
+- [ ] Add gif support
+
+- [ ] Expand on metadata
+
+- [ ] Add custom components
+
+
+<img src="./readme_assets/H1_5.png" />
 
 
 `npm i --save readme-jsx`
 
 
-<img src="./readme_assets/H1_4.png" />
-<img src="./readme_assets/H2_5.png" />
+<img src="./readme_assets/H1_6.png" />
+<img src="./readme_assets/H2_7.png" />
 
 
 ```jsx
@@ -67,7 +91,7 @@ generateMD("./README.jsx").then(() => {
 ![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=blue&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
 
 
-<img src="./readme_assets/H2_6.png" />
+<img src="./readme_assets/H2_8.png" />
 
 
 ```jsx
@@ -119,9 +143,9 @@ generateMD("./README.jsx").then(() => {
 `node ./scripts/readme-gen.js`
 
 
-<img src="./readme_assets/H1_7.png" />
-<img src="./readme_assets/H1_8.png" />
-<img src="./readme_assets/H2_9.png" />
+<img src="./readme_assets/H1_9.png" />
+<img src="./readme_assets/H1_10.png" />
+<img src="./readme_assets/H2_11.png" />
 
 
 | Component | Props | Description | Example | Preview |
@@ -135,22 +159,22 @@ generateMD("./README.jsx").then(() => {
 | ITALIC |  | Turns text italic | `<ITALIC>Italic</ITALIC>` | *Italic* | 
 | BOLD |  | Turns text bold | `<BOLD>Bold</BOLD>` | **Bold** | 
 | SCRATCH |  | Strikes the text | `<SCRATCH>Scratched</SCRATCH>` | ~~Scratched~~ | 
-| BR |  | A line break | `<BR/>` | Sike | 
+| BR |  | A line break | `<BR/>` | Doesn't show inside a table | 
 | HR |  | A horizontal line | `<HR/>` | --- | 
-| QUOTE |  | A quote | `<QUOTE>A thought here</QUOTE>` | > A thought here | 
-| OL | `list: { title: string, content: string[]}[]` | An ordered list | `<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | Sike | 
-| UL | `list: { title: string, content: string[]}[]` | An unordered list | `<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | Sike | 
+| QUOTE |  | A quote | `<QUOTE>A thought here</QUOTE>` | Doesn't show inside a table | 
+| OL | `list: { title: string, content: string[]}[]` | An ordered list | `<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | Doesn't show inside a table | 
+| UL | `list: { title: string, content: string[]}[]` | An unordered list | `<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | Doesn't show inside a table | 
 | CODE | `inline: boolean|lang: string` | A code snippet | `<CODE lang="shell">{"npm i readme-jsx"}</CODE>` | `npm i readme-jsx` | 
 | A | `href: string` | A link | `<A href="https://google.com">Click me</A>` | [Click me](https://google.com) | 
-| TASKS | `list: {title: string, done: boolean}[]` | A list of tasks | `<TASKS list={[{title: "Refactor", done: false}, {title: "Go to sleep", done: false}]} />` | - [ ] Refactor<!-- -->- [ ] Go to sleep | 
+| TASKS | `list: {title: string, done: boolean}[]` | A list of tasks | `<TASKS list={[{title: "Refactor", done: false}, {title: "Go to sleep", done: false}]} />` | Doesn't show inside a table | 
 | COLLAPSIBLE | `title: string` | A collapsible aka accordion | `<COLLAPSIBLE  title="Show the content">The content</COLLAPSIBLE>` | <details><summary>Show the content</summary>The content</details> | 
-| TABLE | `columns: string[]; rows: string[][];` | A table, like this one | `<TABLE columns=["Fruit", "Color"]  rows={[["Banana", "Yellow"],["Watermelon","Green"]]}/>` | Sike | 
+| TABLE | `columns: string[]; rows: string[][];` | A table, like this one | `<TABLE columns=["Fruit", "Color"]  rows={[["Banana", "Yellow"],["Watermelon","Green"]]}/>` | Doesn't show inside a table | 
 | IMG | `src: string ; href: string ; alt: string` | An image | `<IMG src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Nuvola_emblem-favorite.svg/800px-Nuvola_emblem-favorite.svg.png"/>` | [![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Nuvola_emblem-favorite.svg/800px-Nuvola_emblem-favorite.svg.png)](/) | 
 | BADGE | `label: string; message: string; link: string; color: string; style: "plastic" or "flat" or "flat-square" or "for-the-badge" or "social"; logo: string; logoColor: string; labelColor: string;` | A custom badge | `<BADGE label="HELLO" message="WORLD" style="for-the-badge" color="orange" />` | ![HELLO](https://img.shields.io/static/v1?label=HELLO&message=WORLD&color=orange&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black) |
 
 
 
-<img src="./readme_assets/H2_10.png" />
+<img src="./readme_assets/H2_12.png" />
 
 
 | Function | Arguments | Description | Example |
@@ -160,7 +184,7 @@ generateMD("./README.jsx").then(() => {
 
 
 
-<img src="./readme_assets/H2_11.png" />
+<img src="./readme_assets/H2_13.png" />
 
 
 | Property | Description | Example |

@@ -136,6 +136,19 @@ module.exports = (
   <QUOTE>README-JSX is a package that lets you write your README documentations in jsx, opening a multitude of new possibilities and oppurtinities to get creative.
    Not only that, but it also provides you with all the necessary components for writing traditional markdown without having to struggle with spacing and formatting... </QUOTE>
    <QUOTE>NOTICE: This file was generated with this library, you can checkout the sourecode by viewing the README.jsx file</QUOTE><BR/>
+   <Header>Showcase</Header><BR/>
+   <Header>Roadmap</Header><BR/>
+   <TASKS list={[
+     {title: "Complain to self  about how tedious it is to write docs in markdown", done: true},
+     {title: "Brainstorming", done: true},
+     {title: "Come up with a solution", done: true},
+     {title: "Initiate project", done: true},
+     {title: "Code solution", done: true},
+     {title: "Test solution manually because I'm not crazy enough to write a unit test for each case", done: true},
+     {title: "Add gif support", done: false},
+     {title: "Expand on metadata", done: false},
+     {title: "Add custom components", done: false},
+   ]} /><BR/>
    <Header>Installation</Header><BR/>
    <CODE lang="shell">{`npm i --save readme-jsx`}</CODE><BR/>
    <Header>Usage</Header><BR/>
@@ -215,16 +228,16 @@ generateMD("./README.jsx").then(() => {
          ["ITALIC", "", "Turns text italic", <CODE lang="jsx">{`<ITALIC>Italic</ITALIC>`}</CODE>, <ITALIC>Italic</ITALIC>],
          ["BOLD", "", "Turns text bold", <CODE lang="jsx">{`<BOLD>Bold</BOLD>`}</CODE>, <BOLD>Bold</BOLD>],
          ["SCRATCH", "", "Strikes the text", <CODE lang="jsx">{`<SCRATCH>Scratched</SCRATCH>`}</CODE>, <SCRATCH>Scratched</SCRATCH>],
-         ["BR", "", "A line break", <CODE lang="jsx">{`<BR/>`}</CODE>, "Sike"],
+         ["BR", "", "A line break", <CODE lang="jsx">{`<BR/>`}</CODE>, "Doesn't show inside a table"],
          ["HR", "", "A horizontal line", <CODE lang="jsx">{`<HR/>`}</CODE>, <HR/>],
-         ["QUOTE", "", "A quote", <CODE lang="jsx">{`<QUOTE>A thought here</QUOTE>`}</CODE>, <QUOTE>A thought here</QUOTE>],
-         ["OL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An ordered list", <CODE lang="jsx">{`<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, "Sike"],
-         ["UL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An unordered list", <CODE lang="jsx">{`<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, "Sike"],
+         ["QUOTE", "", "A quote", <CODE lang="jsx">{`<QUOTE>A thought here</QUOTE>`}</CODE>, "Doesn't show inside a table"],
+         ["OL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An ordered list", <CODE lang="jsx">{`<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, "Doesn't show inside a table"],
+         ["UL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An unordered list", <CODE lang="jsx">{`<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, "Doesn't show inside a table"],
          ["CODE", <CODE>{`inline: boolean|lang: string`}</CODE>, "A code snippet", <CODE lang="jsx">{`<CODE lang="shell">{"npm i readme-jsx"}</CODE>`}</CODE>,<CODE lang="shell">{"npm i readme-jsx"}</CODE>],
          ["A", <CODE>{`href: string`}</CODE>, "A link", <CODE lang="jsx">{`<A href="https://google.com">Click me</A>`}</CODE>,<A href="https://google.com">Click me</A>],
-         ["TASKS", <CODE>{`list: {title: string, done: boolean}[]`}</CODE>, "A list of tasks", <CODE lang="jsx">{`<TASKS list={[{title: "Refactor", done: false}, {title: "Go to sleep", done: false}]} />`}</CODE>,<TASKS list={[{title: "Refactor", done: false}, {title: "Go to sleep", done: false}]} />],
+         ["TASKS", <CODE>{`list: {title: string, done: boolean}[]`}</CODE>, "A list of tasks", <CODE lang="jsx">{`<TASKS list={[{title: "Refactor", done: false}, {title: "Go to sleep", done: false}]} />`}</CODE>,"Doesn't show inside a table"],
          ["COLLAPSIBLE", <CODE>{`title: string`}</CODE>, "A collapsible aka accordion", <CODE lang="jsx">{`<COLLAPSIBLE  title="Show the content">The content</COLLAPSIBLE>`}</CODE>,<COLLAPSIBLE  title="Show the content">The content</COLLAPSIBLE>],
-         ["TABLE", <CODE>{`columns: string[]; rows: string[][];`}</CODE>, "A table, like this one", <CODE lang="jsx">{`<TABLE columns=["Fruit", "Color"]  rows={[["Banana", "Yellow"],["Watermelon","Green"]]}/>`}</CODE>,"Sike"],
+         ["TABLE", <CODE>{`columns: string[]; rows: string[][];`}</CODE>, "A table, like this one", <CODE lang="jsx">{`<TABLE columns=["Fruit", "Color"]  rows={[["Banana", "Yellow"],["Watermelon","Green"]]}/>`}</CODE>,"Doesn't show inside a table"],
          ["IMG", <CODE>{`src: string ; href: string ; alt: string`}</CODE>, "An image", <CODE lang="jsx">{`<IMG src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Nuvola_emblem-favorite.svg/800px-Nuvola_emblem-favorite.svg.png"/>`}</CODE>,<IMG src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Nuvola_emblem-favorite.svg/800px-Nuvola_emblem-favorite.svg.png"/>],
          ["BADGE", <CODE>{`label: string; message: string; link: string; color: string; style: "plastic" or "flat" or "flat-square" or "for-the-badge" or "social"; logo: string; logoColor: string; labelColor: string;`}</CODE>, "A custom badge", <CODE lang="jsx">{`<BADGE label="HELLO" message="WORLD" style="for-the-badge" color="orange" />`}</CODE>,<BADGE label="HELLO" message="WORLD" style="for-the-badge" color="orange" />],
        ]} /><BR/>
