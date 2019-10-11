@@ -3,7 +3,6 @@
 
 
 ![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=e91e63&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
-
 ![VERSION](https://img.shields.io/static/v1?label=VERSION&message=0.3.0&color=e91e63&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
 
 
@@ -24,6 +23,8 @@
 `npm i --save readme-jsx`
 
 
+<img src="./readme_assets/H1_4.png" />
+<img src="./readme_assets/H2_5.png" />
 
 
 ```jsx
@@ -66,8 +67,61 @@ generateMD("./README.jsx").then(() => {
 ![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=blue&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
 
 
-<img src="./readme_assets/H1_4.png" />
-<img src="./readme_assets/H2_5.png" />
+<img src="./readme_assets/H2_6.png" />
+
+
+```jsx
+// ./README.jsx
+const React = require("react");
+const { metadata} = require("readme-jsx");
+
+const CustomHeader = ({ title, color }) => (
+  <h1 className="custom-header" style={{ WebkitTextFillColor:color }}>{title}</h1>
+)
+module.exports = (
+  <React.Fragment>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+    .custom-header{
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: black;
+       color:red;
+      font-family: Pacifico;
+      width: 880px;
+      font-size: 3em;
+      padding: 0px 0px 10px 10px;
+      display: flex;
+      margin: 0px;
+      align-items: center;
+    }
+    </style>
+    <CustomHeader title={metadata.name} color="yellow"/>
+  </React.Fragment>
+)
+```
+
+
+
+
+```jsx
+// ./scripts/readme-gen.js
+const { generateMD } = require("readme-jsx");
+generateMD("./README.jsx").then(() => {
+  console.log("README.md generated !");
+  process.exit();
+});
+)
+```
+
+
+
+
+`node ./scripts/readme-gen.js`
+
+
+<img src="./readme_assets/H1_7.png" />
+<img src="./readme_assets/H1_8.png" />
+<img src="./readme_assets/H2_9.png" />
 
 
 | Component | Props | Description | Example | Preview |
@@ -96,7 +150,7 @@ generateMD("./README.jsx").then(() => {
 
 
 
-<img src="./readme_assets/H2_6.png" />
+<img src="./readme_assets/H2_10.png" />
 
 
 | Function | Arguments | Description | Example |
@@ -106,7 +160,7 @@ generateMD("./README.jsx").then(() => {
 
 
 
-<img src="./readme_assets/H2_7.png" />
+<img src="./readme_assets/H2_11.png" />
 
 
 | Property | Description | Example |

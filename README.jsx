@@ -26,10 +26,6 @@ const {
 } = require("./src");
 
 
-const Button = ({ children }) => (
-  <button>{children}</button>
-);
-
 const Header = ({ children }) => (
   <h1 className="header">{children}</h1>
 );
@@ -37,6 +33,10 @@ const Header = ({ children }) => (
 const Subheader = ({ children }) => (
   <h2 className="subheader">{children}</h2>
 );
+
+const CustomHeader = ({ title, color }) => (
+  <h1 className="custom-header" style={{ WebkitTextFillColor:color }}>{title}</h1>
+)
 
 const Logo = ({  }) => (
   <h1 id="logo">
@@ -54,9 +54,18 @@ module.exports = (
   <React.Fragment>
     <style>
       {`
-      @import url('https://fonts.googleapis.com/css?family=Raleway:100&display=swap');
-      *{
-        font-family: "Raleway";
+      @import url('https://fonts.googleapis.com/css?family=Raleway:100|Pacifico&display=swap');
+      .custom-header{
+        -webkit-text-stroke-width: 2px;
+        -webkit-text-stroke-color: black;
+         color:red;
+        font-family: Pacifico;
+        width: 880px;
+        font-size: 3em;
+        padding: 0px 0px 10px 10px;
+        display: flex;
+        margin: 0px;
+        align-items: center;
       }
       #logo {
         width: 880px;
@@ -69,6 +78,7 @@ module.exports = (
         align-items: center;
         padding: 0px;
         color: black;
+        font-family: "Raleway";
         // text-shadow: 0 0.1em 20px black, 0.05em -0.03em 0 black, 0.05em 0.005em 0 black, 0em 0.08em 0 black, 0.05em 0.08em 0 black, 0px -0.03em 0 black, -0.03em -0.03em 0 black, -0.03em 0.08em 0 black, -0.03em 0 0 black;
       }
       #description{
@@ -81,6 +91,7 @@ module.exports = (
         justify-content: center;
         align-items: center;
         color: #e91e63;
+        font-family: "Raleway";
         font-size: 1.6em;
       }
       .header {
@@ -94,6 +105,7 @@ module.exports = (
         padding: 0px;
         color: white;
         background: black;
+        font-family: "Raleway";
         text-transform: uppercase;
       }
       .subheader {
@@ -106,14 +118,10 @@ module.exports = (
         align-items: center;
         padding: 0px 5px;
         color: white;
+        font-family: "Raleway";
         background: #e91e63;
         text-transform: uppercase;
         border-top: 3px solid black;
-      }
-      
-
-      button{
-        background: yellow;
       }
       `}
     </style>
@@ -128,8 +136,10 @@ module.exports = (
   <QUOTE>README-JSX is a package that lets you write your README documentations in jsx, opening a multitude of new possibilities and oppurtinities to get creative.
    Not only that, but it also provides you with all the necessary components for writing traditional markdown without having to struggle with spacing and formatting... </QUOTE>
    <QUOTE>NOTICE: This file was generated with this library, you can checkout the sourecode by viewing the README.jsx file</QUOTE><BR/>
-   <Header>Usage</Header><BR/>
+   <Header>Installation</Header><BR/>
    <CODE lang="shell">{`npm i --save readme-jsx`}</CODE><BR/>
+   <Header>Usage</Header><BR/>
+   <Subheader>Basic</Subheader><BR/>
    <CODE inline={false} lang="jsx">{`// ./README.jsx
 const React = require("react");
 const { BADGE, metadata} = require("readme-jsx");
@@ -156,6 +166,43 @@ generateMD("./README.jsx").then(() => {
     message={metadata.license} 
     style="for-the-badge" 
     color="blue" /><BR/>
+       <Subheader>Advanced</Subheader><BR/>
+       <CODE inline={false} lang="jsx">{`// ./README.jsx
+const React = require("react");
+const { metadata} = require("readme-jsx");
+
+const CustomHeader = ({ title, color }) => (
+  <h1 className="custom-header" style={{ WebkitTextFillColor:color }}>{title}</h1>
+)
+module.exports = (
+  <React.Fragment>
+    <style>
+    @import url('https://fonts.googleapis.com/css?family=Pacifico&display=swap');
+    .custom-header{
+      -webkit-text-stroke-width: 2px;
+      -webkit-text-stroke-color: black;
+       color:red;
+      font-family: Pacifico;
+      width: 880px;
+      font-size: 3em;
+      padding: 0px 0px 10px 10px;
+      display: flex;
+      margin: 0px;
+      align-items: center;
+    }
+    </style>
+    <CustomHeader title={metadata.name} color="yellow"/>
+  </React.Fragment>
+)`}</CODE><BR/>
+   <CODE inline={false} lang="jsx">{`// ./scripts/readme-gen.js
+const { generateMD } = require("readme-jsx");
+generateMD("./README.jsx").then(() => {
+  console.log("README.md generated !");
+  process.exit();
+});
+)`}</CODE><BR/>
+   <CODE  lang="shell">{`node ./scripts/readme-gen.js`}</CODE><BR/>
+   <CustomHeader title={metadata.name} color="yellow" /><BR/>
        <Header>API</Header><BR/>
        <Subheader>Components</Subheader><BR/>
        <TABLE columns={["Component", "Props", "Description", "Example", "Preview"]} rows={[

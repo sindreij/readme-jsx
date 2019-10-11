@@ -52,7 +52,9 @@ const evaluateHTML = (browser, html) =>
       waitUntil: "networkidle0"
     });
     const snapshots = await page.evaluate(() => {
-      const styles = Array.from(document.querySelectorAll("style"))
+      const styles = Array.from(
+        document.querySelectorAll("style[data-reactroot]")
+      )
         .map(style => style.innerHTML)
         .join("\n\n");
       const elements = Array.from(
@@ -115,7 +117,9 @@ const parseMetadata = (packagejson, markdown) => {
 };
 
 const stripStyles = markdown =>
-  Promise.resolve(markdown.replace(/<style.*?<\/style>/gims, ""));
+  Promise.resolve(
+    markdown.replace(/<style\s+data-reactroot.*?<\/style>/gims, "")
+  );
 
 const replaceTags = (replacers, packagejson, html) =>
   new Promise(async (resolve, reject) => {
