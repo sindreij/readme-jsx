@@ -3,10 +3,10 @@ name: publish
 on:
   pull_request:
     branches:
-      - master
+      - release
   push:
     branches:
-      - master
+      - release
 
 jobs:
   publish-npm:
