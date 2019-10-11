@@ -49,7 +49,7 @@
 <img src="./readme_assets/H1_5.png" />
 
 
-`npm i --save readme-jsx`
+`npm i --save-dev readme-jsx`
 
 
 <img src="./readme_assets/H1_6.png" />
