@@ -129,7 +129,9 @@ module.exports = (
   <Description /><BR />
 
 
-  <BADGE label="LICENSE" message={metadata.license} style="for-the-badge" color="e91e63" /><BADGE label="VERSION" message={metadata.version} style="for-the-badge" color="e91e63" />
+  <BADGE label="LICENSE" message={metadata.license} style="for-the-badge" color="e91e63" />
+  <BADGE label="VERSION" message={metadata.version} style="for-the-badge" color="e91e63" />
+  <BADGE label="PATREON" message="SUPPORT" style="for-the-badge" color="orange" link="https://www.patreon.com/solidsnail" />
 
   <BR /><BR/>
   <Header>About</Header><BR/>
