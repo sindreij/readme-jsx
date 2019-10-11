@@ -8,6 +8,7 @@ const {
   H5,
   H6,
   UL,
+  IMG,
   BOLD,
   ITALIC,
   OL,
@@ -167,107 +168,28 @@ generateMD("./README.jsx").then(() => {
          ["ITALIC", "", "Turns text italic", <CODE lang="jsx">{`<ITALIC>Italic</ITALIC>`}</CODE>, <ITALIC>Italic</ITALIC>],
          ["BOLD", "", "Turns text bold", <CODE lang="jsx">{`<BOLD>Bold</BOLD>`}</CODE>, <BOLD>Bold</BOLD>],
          ["SCRATCH", "", "Strikes the text", <CODE lang="jsx">{`<SCRATCH>Scratched</SCRATCH>`}</CODE>, <SCRATCH>Scratched</SCRATCH>],
-         ["BR", "", "A line break", <CODE lang="jsx">{`<BR/>`}</CODE>, <BR/>],
+         ["BR", "", "A line break", <CODE lang="jsx">{`<BR/>`}</CODE>, "Sike"],
          ["HR", "", "A horizontal line", <CODE lang="jsx">{`<HR/>`}</CODE>, <HR/>],
          ["QUOTE", "", "A quote", <CODE lang="jsx">{`<QUOTE>A thought here</QUOTE>`}</CODE>, <QUOTE>A thought here</QUOTE>],
-         ["OL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An ordered list", <CODE lang="jsx">{`<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, <OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />],
-         ["UL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An unordered list", <CODE lang="jsx">{`<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, <UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />],
+         ["OL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An ordered list", <CODE lang="jsx">{`<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, "Sike"],
+         ["UL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An unordered list", <CODE lang="jsx">{`<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, "Sike"],
          ["CODE", <CODE>{`inline: boolean|lang: string`}</CODE>, "A code snippet", <CODE lang="jsx">{`<CODE lang="shell">{"npm i readme-jsx"}</CODE>`}</CODE>,<CODE lang="shell">{"npm i readme-jsx"}</CODE>],
+         ["A", <CODE>{`href: string`}</CODE>, "A link", <CODE lang="jsx">{`<A href="https://google.com">Click me</A>`}</CODE>,<A href="https://google.com">Click me</A>],
+         ["TASKS", <CODE>{`list: {title: string, done: boolean}[]`}</CODE>, "A list of tasks", <CODE lang="jsx">{`<TASKS list={[{title: "Refactor", done: false}, {title: "Go to sleep", done: false}]} />`}</CODE>,<TASKS list={[{title: "Refactor", done: false}, {title: "Go to sleep", done: false}]} />],
+         ["COLLAPSIBLE", <CODE>{`title: string`}</CODE>, "A collapsible aka accordion", <CODE lang="jsx">{`<COLLAPSIBLE  title="Show the content">The content</COLLAPSIBLE>`}</CODE>,<COLLAPSIBLE  title="Show the content">The content</COLLAPSIBLE>],
+         ["TABLE", <CODE>{`columns: string[] | rows: string[][]`}</CODE>, "A table, like this one", <CODE lang="jsx">{`<TABLE columns=["Fruit", "Color"]  rows={[["Banana", "Yellow"],["Watermelon","Green"]]}/>`}</CODE>,"Sike"],
+         ["IMG", <CODE>{`src: string ; href: string ; alt: string`}</CODE>, "An image", <CODE lang="jsx">{`<IMG src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Nuvola_emblem-favorite.svg/800px-Nuvola_emblem-favorite.svg.png"/>`}</CODE>,<IMG src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Nuvola_emblem-favorite.svg/800px-Nuvola_emblem-favorite.svg.png"/>],
+         ["BADGE", <CODE>{`label: string; message: string; link: string; color: string; style: "plastic" | "flat" | "flat-square" | "for-the-badge" | "social"; logo: string; logoColor: string; labelColor: string;`}</CODE>, "A custom badge", <CODE lang="jsx">{`<BADGE label="HELLO" message="WORLD" style="for-the-badge" color="orange" />`}</CODE>,<BADGE label="HELLO" message="WORLD" style="for-the-badge" color="orange" />],
        ]} /><BR/>
        <Subheader>Functions</Subheader><BR/>
-       <TABLE columns={["Function", "Arguments", "Description", "Example"]} rows={[[]]} /><BR/>
+       <TABLE columns={["Function", "Arguments", "Description", "Example"]} rows={[
+         ["generateMD", "path: string, options: { linebreak: number; assetsDir: string; packagejson: string; }","The function which generates the markdown file", <CODE>{`generateMD("./README.jsx").then(() => { console.log("README.md generated !"); process.exit(); });`}</CODE>],
+         ["importJSX", "path: string","This function is used to import jsx files inside your README.jsx, since node does not support the JSX engine by default", <CODE>{`const importJSX = require("import-jsx"); const Button = importJSX("../components/Button.jsx");`}</CODE>],
+         ]} /><BR/>
        <Subheader>Properties</Subheader><BR/>
-       <TABLE columns={["Property", "Description", "Example"]} rows={[[]]} /><BR/>
+       <TABLE columns={["Property", "Description", "Example"]} rows={[
+         ["metadata", "An object which contains the list of metadata properties that can be parsed from the package.json file", <CODE>{`<BADGE label="LICENSE" message={metadata.license}/>`}</CODE>]
+         ]} /><BR/>
     
-{/* 
-    <H1>{metadata.name}</H1>
-    <H1>{metadata.description}</H1>
-    <H1>{metadata.author}</H1>
-    <H1>{metadata.keywords}</H1>
-    <H1>{metadata.license}</H1>
-    <H2>JSX to markdown, just like that... </H2>
-    <H3>1.0.0 </H3>
-    <H4>1.0.0 </H4>
-    <H5>1.0.0 </H5>
-    <H6>1.0.0 </H6>
-
-
-    <A href="https://github.com/solidsnail/">Click me</A>
-
-    <CODE>Hello world</CODE>
-
-    <CODE inline={false} lang="jsx">
-      {`<Button>Coool</Button>`}
-    </CODE>
-
-
-    <HR />
-
-    <TABLE 
-    columns={["First Header", "Second Header"]} 
-    rows={[
-      ["Content Cell","Content Cell"],
-      ["Content Cell","Content Cell"],
-    ]}
-    />
-
-
-<HR />
-
-    <QUOTE>
-      A quote here
-    </QUOTE>
-
-    <COLLAPSIBLE title="Hello">Content here</COLLAPSIBLE>
-
-    <TASKS list={[
-      {title: "Do this", done: true},
-      {title: "Do that", done: false},
-    ]} />
-
-    <BOLD>1.0.0 </BOLD>
-
-    <ITALIC>1.0.0 </ITALIC>
-
-    <SCRATCH>1.0.0 </SCRATCH>
-
-    <UL
-      list={[
-        {
-          title: "First item",
-          content: [
-            "This is the first item content",
-            "This is the first item content",
-            "This is the first item content",
-          ],
-        },
-        { title: "Second item", content: ["This is the second item content"] },
-        { title: "Third item", content: ["This is the third item content"] },
-      ]}
-    />
-
-    <OL
-      list={[
-        {
-          title: "First item",
-          content: [
-            "This is the first item content",
-            "This is the first item content",
-            "This is the first item content",
-          ],
-        },
-        { title: "Second item", content: ["This is the second item content"] },
-        { title: "Third item", content: ["This is the third item content"] },
-      ]}
-    />
-
-
-      <BR/>
-      <BR/>
-    <Button>Hello world</Button>
-    <Button>Hello world 2</Button>
-    <Button>Hello world 3</Button> */}
-
-
   </React.Fragment>
 );

@@ -80,19 +80,18 @@ generateMD("./README.jsx").then(() => {
 | ITALIC |  | Turns text italic | `<ITALIC>Italic</ITALIC>` | *Italic* | 
 | BOLD |  | Turns text bold | `<BOLD>Bold</BOLD>` | **Bold** | 
 | SCRATCH |  | Strikes the text | `<SCRATCH>Scratched</SCRATCH>` | ~~Scratched~~ | 
-| BR |  | A line break | `<BR/>` | 
- | 
+| BR |  | A line break | `<BR/>` | Sike | 
 | HR |  | A horizontal line | `<HR/>` | --- | 
 | QUOTE |  | A quote | `<QUOTE>A thought here</QUOTE>` | > A thought here | 
-| OL | `list: { title: string, content: string[]}[]` | An ordered list | `<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | 
-1. First item
-   - Lorem ipsum
-   - Lorem ipsum | 
-| UL | `list: { title: string, content: string[]}[]` | An unordered list | `<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | 
-* First item
-   - Lorem ipsum
-   - Lorem ipsum | 
-| CODE | `inline: boolean|lang: string` | A code snippet | `<CODE lang="shell">{"npm i readme-jsx"}</CODE>` | `npm i readme-jsx` |
+| OL | `list: { title: string, content: string[]}[]` | An ordered list | `<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | Sike | 
+| UL | `list: { title: string, content: string[]}[]` | An unordered list | `<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | Sike | 
+| CODE | `inline: boolean|lang: string` | A code snippet | `<CODE lang="shell">{"npm i readme-jsx"}</CODE>` | `npm i readme-jsx` | 
+| A | `href: string` | A link | `<A href="https://google.com">Click me</A>` | [Click me](https://google.com) | 
+| TASKS | `list: {title: string, done: boolean}[]` | A list of tasks | `<TASKS list={[{title: "Refactor", done: false}, {title: "Go to sleep", done: false}]} />` | - [ ] Refactor<!-- -->- [ ] Go to sleep | 
+| COLLAPSIBLE | `title: string` | A collapsible aka accordion | `<COLLAPSIBLE  title="Show the content">The content</COLLAPSIBLE>` | <details><summary>Show the content</summary>The content</details> | 
+| TABLE | `columns: string[] | rows: string[][]` | A table, like this one | `<TABLE columns=["Fruit", "Color"]  rows={[["Banana", "Yellow"],["Watermelon","Green"]]}/>` | Sike | 
+| IMG | `src: string ; href: string ; alt: string` | An image | `<IMG src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Nuvola_emblem-favorite.svg/800px-Nuvola_emblem-favorite.svg.png"/>` | [![](https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Nuvola_emblem-favorite.svg/800px-Nuvola_emblem-favorite.svg.png)](/) | 
+| BADGE | `label: string; message: string; link: string; color: string; style: "plastic" | "flat" | "flat-square" | "for-the-badge" | "social"; logo: string; logoColor: string; labelColor: string;` | A custom badge | `<BADGE label="HELLO" message="WORLD" style="for-the-badge" color="orange" />` | ![HELLO](https://img.shields.io/static/v1?label=HELLO&message=WORLD&color=orange&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black) |
 
 
 
@@ -101,7 +100,8 @@ generateMD("./README.jsx").then(() => {
 
 | Function | Arguments | Description | Example |
 | ------------- | ------------- | ------------- | ------------- |
-|  |
+| generateMD | path: string, options: { linebreak: number; assetsDir: string; packagejson: string; } | The function which generates the markdown file | `generateMD("./README.jsx").then(() => { console.log("README.md generated !"); process.exit(); });` | 
+| importJSX | path: string | This function is used to import jsx files inside your README.jsx, since node does not support the JSX engine by default | `const importJSX = require("import-jsx"); const Button = importJSX("../components/Button.jsx");` |
 
 
 
@@ -110,7 +110,7 @@ generateMD("./README.jsx").then(() => {
 
 | Property | Description | Example |
 | ------------- | ------------- | ------------- |
-|  |
+| metadata | An object which contains the list of metadata properties that can be parsed from the package.json file | `<BADGE label="LICENSE" message={metadata.license}/>` |
 
 
 
