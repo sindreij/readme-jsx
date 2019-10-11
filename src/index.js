@@ -57,7 +57,7 @@ module.exports = {
   UL: function({ list }) {
     return list.map(
       item =>
-        cell`\n* ${item.title}${
+        `\n* ${item.title}${
           item.content && item.content.length
             ? item.content.map(c => `\n   - ${c}`).join("")
             : ""

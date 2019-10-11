@@ -3,7 +3,6 @@
 
 
 ![LICENSE](https://img.shields.io/static/v1?label=LICENSE&message=MIT&color=e91e63&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
-
 ![VERSION](https://img.shields.io/static/v1?label=VERSION&message=0.3.0&color=e91e63&style=for-the-badge&logo=&logoColor=violet&link=&labelColor=black)
 
 
@@ -78,9 +77,22 @@ generateMD("./README.jsx").then(() => {
 | H4 |  | A basic markdown header | `<H4>A header</H4>` | #### A header | 
 | H5 |  | A basic markdown header | `<H5>A header</H5>` | ##### A header | 
 | H6 |  | A basic markdown header | `<H6>A header</H6>` | ##### A header | 
-| ITALIC |  | Turns text italic | `<H6>A header</H6>` | ##### A header | 
-| BOLD |  | Turns text bold | `<H6>A header</H6>` | ##### A header | 
-| SCRATCH |  | Scratches the text | `<H6>A header</H6>` | ##### A header |
+| ITALIC |  | Turns text italic | `<ITALIC>Italic</ITALIC>` | *Italic* | 
+| BOLD |  | Turns text bold | `<BOLD>Bold</BOLD>` | **Bold** | 
+| SCRATCH |  | Strikes the text | `<SCRATCH>Scratched</SCRATCH>` | ~~Scratched~~ | 
+| BR |  | A line break | `<BR/>` | 
+ | 
+| HR |  | A horizontal line | `<HR/>` | --- | 
+| QUOTE |  | A quote | `<QUOTE>A thought here</QUOTE>` | > A thought here | 
+| OL | `list: { title: string, content: string[]}[]` | An ordered list | `<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | 
+1. First item
+   - Lorem ipsum
+   - Lorem ipsum | 
+| UL | `list: { title: string, content: string[]}[]` | An unordered list | `<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />` | 
+* First item
+   - Lorem ipsum
+   - Lorem ipsum | 
+| CODE | `inline: boolean|lang: string` | A code snippet | `<CODE lang="shell">{"npm i readme-jsx"}</CODE>` | `npm i readme-jsx` |
 
 
 

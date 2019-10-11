@@ -96,14 +96,14 @@ module.exports = (
         text-transform: uppercase;
       }
       .subheader {
-        text-align:left;
+        width: 880px;
         height: 40px;
         margin: 0px;
         font-size: 1.5em;
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        padding: 0px;
+        padding: 0px 5px;
         color: white;
         background: #e91e63;
         text-transform: uppercase;
@@ -164,9 +164,15 @@ generateMD("./README.jsx").then(() => {
          ["H4", "", "A basic markdown header", <CODE lang="jsx">{`<H4>A header</H4>`}</CODE>, <H4>A header</H4>],
          ["H5", "", "A basic markdown header", <CODE lang="jsx">{`<H5>A header</H5>`}</CODE>, <H5>A header</H5>],
          ["H6", "", "A basic markdown header", <CODE lang="jsx">{`<H6>A header</H6>`}</CODE>, <H6>A header</H6>],
-         ["ITALIC", "", "Turns text italic", <CODE lang="jsx">{`<H6>A header</H6>`}</CODE>, <H6>A header</H6>],
-         ["BOLD", "", "Turns text bold", <CODE lang="jsx">{`<H6>A header</H6>`}</CODE>, <H6>A header</H6>],
-         ["SCRATCH", "", "Scratches the text", <CODE lang="jsx">{`<H6>A header</H6>`}</CODE>, <H6>A header</H6>],
+         ["ITALIC", "", "Turns text italic", <CODE lang="jsx">{`<ITALIC>Italic</ITALIC>`}</CODE>, <ITALIC>Italic</ITALIC>],
+         ["BOLD", "", "Turns text bold", <CODE lang="jsx">{`<BOLD>Bold</BOLD>`}</CODE>, <BOLD>Bold</BOLD>],
+         ["SCRATCH", "", "Strikes the text", <CODE lang="jsx">{`<SCRATCH>Scratched</SCRATCH>`}</CODE>, <SCRATCH>Scratched</SCRATCH>],
+         ["BR", "", "A line break", <CODE lang="jsx">{`<BR/>`}</CODE>, <BR/>],
+         ["HR", "", "A horizontal line", <CODE lang="jsx">{`<HR/>`}</CODE>, <HR/>],
+         ["QUOTE", "", "A quote", <CODE lang="jsx">{`<QUOTE>A thought here</QUOTE>`}</CODE>, <QUOTE>A thought here</QUOTE>],
+         ["OL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An ordered list", <CODE lang="jsx">{`<OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, <OL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />],
+         ["UL", <CODE>{`list: { title: string, content: string[]}[]`}</CODE>, "An unordered list", <CODE lang="jsx">{`<UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />`}</CODE>, <UL list={[{title: "First item", content: ["Lorem ipsum","Lorem ipsum"]}]} />],
+         ["CODE", <CODE>{`inline: boolean|lang: string`}</CODE>, "A code snippet", <CODE lang="jsx">{`<CODE lang="shell">{"npm i readme-jsx"}</CODE>`}</CODE>,<CODE lang="shell">{"npm i readme-jsx"}</CODE>],
        ]} /><BR/>
        <Subheader>Functions</Subheader><BR/>
        <TABLE columns={["Function", "Arguments", "Description", "Example"]} rows={[[]]} /><BR/>
