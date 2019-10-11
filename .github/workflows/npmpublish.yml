@@ -1,4 +1,4 @@
-name: readme-jsx
+name: publish
 
 on:
   pull_request:
