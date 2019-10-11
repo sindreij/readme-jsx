@@ -146,8 +146,11 @@ module.exports = (
      {title: "Code solution", done: true},
      {title: "Test solution manually because I'm not crazy enough to write a unit test for each case", done: true},
      {title: "Add gif support", done: false},
+     {title: "Add watch mode", done: false},
+     {title: "Maybe publish also a cli", done: false},
      {title: "Expand on metadata", done: false},
      {title: "Add custom components", done: false},
+     {title: "Create VS Code extension", done: false},
    ]} /><BR/>
    <Header>Installation</Header><BR/>
    <CODE lang="shell">{`npm i --save readme-jsx`}</CODE><BR/>
