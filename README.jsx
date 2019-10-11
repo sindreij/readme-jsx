@@ -153,7 +153,7 @@ module.exports = (
      {title: "Create VS Code extension", done: false},
    ]} /><BR/>
    <Header>Installation</Header><BR/>
-   <CODE lang="shell">{`npm i --save readme-jsx`}</CODE><BR/>
+   <CODE lang="shell">{`npm i --save-dev readme-jsx`}</CODE><BR/>
    <Header>Usage</Header><BR/>
    <Subheader>Basic</Subheader><BR/>
    <CODE inline={false} lang="jsx">{`// ./README.jsx
